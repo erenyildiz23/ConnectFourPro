@@ -49,7 +49,7 @@ class ConnectFourGame:
 
         # 1. Update Bitboard
         move_bit = 1 << self.heights[col]
-        self.bitboards[self.current_player] ^= move_bit
+        self.bitboards[self.current_player] ^= move_bit #XOR for setting bit
         
         # 2. Update State
         self.heights[col] += 1
@@ -86,8 +86,7 @@ class ConnectFourGame:
 
     def check_win(self, player):
         """
-        Checks for a win using optimized bitwise operations.
-        Updates self.winning_mask if a win is found.
+        win conditions using bitboard operations.
         """
         bb = self.bitboards[player]
         
